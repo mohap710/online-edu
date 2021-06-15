@@ -1,0 +1,309 @@
+body{font-family:sans-serif;}
+span.navbar-toggler{
+    color: #030431;
+    margin-right: 35px;
+}
+li>a.nav-link{
+
+    font-weight: bold;
+    color: #2d3058;
+    padding-right: 60px;!important;
+}
+.header-area .header-top {
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+@media (min-width: 992px) {
+    .d-lg-block {
+        display: block !important;
+    }
+}
+.slider-height {
+    background-image: url(../img/heroman.png);
+    min-height: 840px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+@media (max-width: 575px){
+.slider-height {
+    min-height: 400px;
+}}
+input.search{
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: -25px;
+    width: 190px;
+    background-color: #F4F4F4;
+    border-bottom:solid #2d3092 ;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input.search:focus {
+    width: 100%;
+
+}
+
+a.navbar-toggle{
+    position: absolute;
+    padding: 15px;
+    right: 1px;
+    top: -40px;
+    color: white;
+    background-color: #2a2c7f;
+    width: 50px;
+    border-radius: 500px;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding: 25px 15px 25px 10px;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    background-color: #f4f4f4f4;
+}
+.hero__caption>span {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: rgb(45, 48, 146);
+    margin-bottom: 44px;
+    display: inline-block;
+}
+h1.intro{
+    color:#030431;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 50px;
+    animation-delay: 0.4s;
+    display: inline-block;
+}
+div.background{
+    background-color: #C0DFFF;
+}
+.button {
+    border-radius: 4px;
+    background-color:rgb(45, 48, 146);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 250px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    color: white;
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    color: white;
+    opacity: 1;
+    right: 0;
+}
+
+div.section-tittle{
+    padding: 75px 0 25px;
+}
+div.section-tittle>span{
+    color: #2d3092;
+    font-weight: bold;
+}
+div.section-tittle>h2{
+    color: #030431;
+    font-weight: 500;
+}
+.mohab-card>div{
+color: rgb(87, 102, 126);
+    font-size: 18px;
+}
+h5{
+    font-size: 25px;
+    font-weight: bold;
+
+    padding-bottom: 10px;
+
+}
+h5>a{
+    color: #030431;
+}
+
+.button1 {
+    border-radius: 4px;
+    background-color:rgb(45, 48, 146);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 15px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button1 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button1:hover span {
+    color: white;
+    padding-right: 15px;
+}
+
+.button1:hover span:after {
+    color: white;
+    opacity: 1;
+    right: 0;
+}
+
+.uk-container{
+    margin-top: 70px;
+    background-color: #f6fbff;
+    width: 100%;
+    height: 190px;
+
+}
+.count-down-area .count-down-wrapper .single-counter p {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 600;
+    display: block;
+    font-family: Sen, sans-serif;
+    margin-top: 40px;
+    background-color: #f6fbff;
+    width: 100%;
+    height: 50px;
+}
+div.single-counter{
+
+    padding: 15px;
+}
+
+ .color-blue {
+     font-size: 16px;!important;
+     font-weight: bold;
+     color: rgb(45, 48, 146);
+ }
+.color-red {
+    font-size: 16px;!important;
+    font-weight: bold;
+    color: rgb(240, 85, 16);
+}
+.color-green {
+    font-size: 16px;!important;
+    font-weight: bold;
+    color: rgb(30, 157, 120);
+    padding-top: 10px;
+}
+.color-green2{
+    font-size: 16px;!important;
+    font-weight: bold;
+    color:#299b10;
+}
+.checked {
+    color: gold;
+}
+/*section.team{*/
+/*    margin-top: 50px;*/
+/*    display: block;*/
+/*}*/
+.uk-card{
+    padding-right: 25px;
+}
+.uk-card{
+    margin: 5px;
+}
+nav[uk-sticky]{
+    background-color: white;
+}
+.uk-position-small {
+    max-width: calc(100% - (100% * 2));
+    margin: 15px;
+}
+@media (min-width: 992px){
+    .float-lg-right {
+        float: right!important;
+        margin-top: -140px;
+    }
+}
+
+/*Animated underline*/
+a.custom-underline {
+    padding-bottom: 5px;
+    color: #2d3092;
+    text-decoration: none;
+    background-image: linear-gradient(#0d0d0d, white);
+    background-size: 0% 0.3em;
+    background-position-y: 100%;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+a.custom-underline:hover,
+a.custom-underline:focus,
+a.custom-underline:active {
+    background-size: 100% 0.1em;
+}
+.btn-info {
+    color: #fff;
+    background-color: #5254a4 !important;
+}
+.uk-subnav-pill>.uk-active>a {
+    background-color: #5254a4;
+    color: #fff;
+}
+/* animate/*/
+.c{
+    position: absolute;
+    width: 100%;
+}
+.c.ng-enter{
+    opacity: 0;
+    transition: all 0.7s;
+}
+.c.ng-enter-active{
+    opacity: 1;
+}
+.c.ng-leave{
+    opacity: 1;
+    transition: all 0.7s;
+}
+.c.ng-leave-active{
+    opacity: 0;
+}
