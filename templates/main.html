@@ -1,0 +1,108 @@
+<div id="modal-signup" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header" style="background-color: #2d3092">
+            <h2 class="uk-modal-title" style="color: white">Sign Up</h2>
+        </div>
+
+        <div class="uk-modal-body" uk-overflow-auto>
+
+            <form>
+
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input class="uk-input" type="text" placeholder="Username">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                        <input class="uk-input" type="text" placeholder="E-mail">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon " uk-icon="icon: lock"></span>
+                        <input class="uk-input" type="password" placeholder="Password">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="uk-modal-footer uk-text-right">
+
+            <button class="uk-button btn-info text-center" type="button">Sign Up</button>
+        </div>
+
+    </div>
+</div>
+
+<div style="background-color: #2a2c7f;" class=" navbar navbar-expand-lg nav d-none d-lg-block border-bottom-0">
+
+    <div class="header-left-social">
+
+    </div>
+    <div class="container-fluid" style="padding: 10px!important;">
+        <div class="col-xl-12">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="header-info-left" style="background-color: #2a2c7f">
+                    <ul  class=" nav header-social">
+                        <li class="nav-item"> <a href="" style="color: white;"   class=" uk-margin-small-right" uk-icon="twitter"></a></li>
+                        <li class="nav-item"> <a href="" style="color: white;"  class="  uk-margin-small-right" uk-icon="facebook"></a></li>
+                        <li class="nav-item"> <a href="" style="color: white;"  class="" uk-icon="google-plus"></a></li>
+                    </ul>
+                </div>
+                <div class="header-info-right">
+                    <ul class="nav" style="margin-top: 5px;">
+                        <li class="nav-item" style="margin-right: 10px;"><a style="color: white;" href="#modal-signup" uk-toggle ><i style="color: white;"  uk-icon="lock"></i>Sign up</a></li>
+                        <li><a style="color: white;" ><i style="color: white;" uk-icon="user"></i>Sign in</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav id="nav" uk-sticky="animation: uk-animation-slide-top" ng-controller="appCtrl" style="padding: 0;" class=" nav navbar navbar-expand-lg   " ng-init="selectedTab='home'">
+    <a style="color:black;"  ng-click="selectedTab='home'" style="font-weight: bold" class="navbar-brand" href="#"><img
+            src="img/logo.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="color: white;margin-right: 35px;">≡</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav" >
+            <li class="padding nav-item {{selectedTab=='home'?'active':''}}">
+                <a ng-click="selectedTab='home'" class="nav-link" ui-sref="main.home" >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="padding nav-item {{selectedTab=='courses'?'active':''}}">
+                <a ng-click="selectedTab='courses'" class="nav-link" ui-sref="main.courses">Courses</a>
+            </li>
+            <li class="padding nav-item {{selectedTab=='contact'?'active':''}}">
+                <a ng-click="selectedTab='contact'" class="nav-link" ui-sref="main.contact">Contact Us</a>
+            </li>
+        </ul>
+<ul style="right:25px;bottom:-20px;position:absolute;color: black;font-size: medium;margin-top: 10px;">
+
+    <a class="uk-navbar-toggle " uk-search-icon href=""></a>
+    <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+        <form class="uk-search uk-search-navbar uk-width-1-1">
+            <input class="uk-search-input search " type="search" placeholder="Search..." autofocus>
+        </form>
+    </div>
+</ul>
+
+    </div>
+</nav>
+
+<div id="a" class="c" style="margin-top: 10px;width: 100%;margin-bottom: 60px;position: absolute" class="b container-fluid" ui-view="sub">
+    <a style="position:fixed;bottom: 2px;right: 2px;background-color: black;color: white" href="#nav" uk-totop></a>
+
+</div>
+
+

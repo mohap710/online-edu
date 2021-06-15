@@ -1,0 +1,119 @@
+<div ng-controller="coursesCtrl">
+    <a ui-sref="main.courses" class="uk-icon-link" uk-icon="icon: arrow-left; ratio: 2"></a><a style="display: inline;font-weight: 700;color: #2d3092" ui-sref="main.courses">Back To Courses</a>
+    <div class="jumbotron">
+        <h1 class="uk-heading-bullet">{{course.name}}</h1>
+        <h4>Duration:{{course.duration}}</h4>
+        <img src="{{course.img}}" style="width: 150px;height: 150px;" alt="" class="float-lg-right">
+    </div>
+
+    <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide">
+        <li><a href="#">General</a></li>
+        <li><a href="#">Lectures</a></li>
+        <li><a href="#">Instructor</a></li>
+        <li><a href="#">FAQs</a></li>
+    </ul>
+
+    <ul class="uk-switcher uk-margin">
+        <li> <dl class="uk-description-list uk-description-list-divider">
+            <dt>Description term</dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd>
+            <dt>Description term</dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+            <dt>Description term</dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+        </dl></li>
+        <li>
+            <div style="width:100%" class="col-lg-push-1 container-fluid">
+            <ul uk-accordion ng-repeat="cours in web|filter:{name:course.name}">
+                <li  class="uk-accordion-content" ng-repeat="lecture in cours.lectures">
+                    <a class="uk-accordion-title"  >{{lecture.name}}</a>
+                            <div  class="uk-accordion-content">
+                                <ol>
+                                   <li ng-repeat="lesson in lecture.lessons">
+                                {{lesson.name}}
+                                   </li>
+                               </ol>
+                            </div>
+                </li>
+
+
+
+            </ul>
+            </div>
+        </li>
+        <li>
+            <div class="uk-panel">
+            <div class="uk-panel">
+            <h2 class="uk-align-left@m  uk-margin-remove-adjacent" >Ins.Mason Mount</h2>
+            </div>
+            <img class="uk-align-center uk-align-left@m uk-margin-remove-adjacent" style="border-radius: 50%"  src="img/team3.png" width="225" height="150" alt="Example image">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        </li>
+        <li class="faqs">
+            <article class="container-fluid uk-comment" ng-repeat="Q in faqs">
+                <header class="uk-comment-header">
+                    <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                        <div class="uk-width-auto">
+                            <img class="uk-comment-avatar" src="img/about1.png" width="80" height="80" alt="">
+                        </div>
+                        <div class="uk-width-expand">
+                            <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{Q.name}}</a></h4>
+                            <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                                <li><a href="#">12 days ago</a></li>
+                                <li><a id="reply">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+                <div class="uk-comment-body">
+                    <p>{{Q.comment}}.</p>
+                </div>
+
+            </article>
+
+            <form id="form" class="border border-light p-5" ng-submit="faqs.push({name:faqs.name,comment:faqs.comment});faqs.name='';faqs.comment='';">
+
+                <p class="h4 mb-4 text-center">Ask Question</p>
+
+
+                <input type="text" id="defaultSaveFormFirstName" class="form-control" ng-model="faqs.name" placeholder="First name">
+
+                <textarea class="form-control rounded-0" id="exampleFormControlTextareaSave" ng-model="faqs.comment" rows="3" placeholder="Message"></textarea>
+
+                <button class="btn btn-info btn-block" type="submit" >Save</button>
+            </form>
+        </li>
+    </ul>
+<!-- This is the container of the content items -->
+<!--<ul class="uk-switcher">-->
+<!--    <li>-->
+
+<!--    </li>-->
+<!--    <li>-->
+
+<!--    </li>-->
+<!--    <li><article class="uk-article">-->
+
+<!--        <h1 class="uk-article-title"><a class="uk-link-reset" href="">Ins.Name</a></h1>-->
+
+<!--        <p class="uk-article-meta"> on 12 April 2012. Posted in <a href="#">Blog</a></p>-->
+
+<!--        <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>-->
+
+<!--        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+
+<!--        <div class="uk-grid-small uk-child-width-auto" uk-grid>-->
+<!--            <div>-->
+<!--                <a class="uk-button uk-button-text" href="#">Read more</a>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <a class="uk-button uk-button-text" href="#">5 Comments</a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </article> </li>-->
+<!--</ul>-->
+</div>

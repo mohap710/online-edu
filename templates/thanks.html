@@ -1,0 +1,20 @@
+<md-dialog aria-label="Mango (Fruit)" style="width: 500px;">
+
+        <md-toolbar ng-controller="storeCtrl">
+            <div class="md-toolbar-tools" style="background-color: darkgreen;!important;">
+                <h2 style="color: white">Successfully</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog">X</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h5 style="display: inline;">You bought <h3 style="display: inline;">{{"("+product.qty+")"}}</h3>   {{"Items of "}}<h3 style="display: inline;">{{"("+product.name+")"}}</h3> </h5>
+            </div>
+        </md-dialog-content>
+
+
+</md-dialog>
