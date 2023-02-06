@@ -42,67 +42,54 @@
     </div>
 </div>
 
-<div style="background-color: #2a2c7f;" class=" navbar navbar-expand-lg nav d-none d-lg-block border-bottom-0">
-
-    <div class="header-left-social">
-
-    </div>
-    <div class="container-fluid" style="padding: 10px!important;">
+<div style="background-color: #2d3058;" class="navbar navbar-expand-lg nav d-none d-lg-block border-bottom-0">
+    <div class="container-fluid">
         <div class="col-xl-12">
             <div class="row d-flex justify-content-between align-items-center">
-                <div class="header-info-left" style="background-color: #2a2c7f">
-                    <ul  class=" nav header-social">
-                        <li class="nav-item"> <a href="" style="color: white;"   class=" uk-margin-small-right" uk-icon="twitter"></a></li>
-                        <li class="nav-item"> <a href="" style="color: white;"  class="  uk-margin-small-right" uk-icon="facebook"></a></li>
-                        <li class="nav-item"> <a href="" style="color: white;"  class="" uk-icon="google-plus"></a></li>
-                    </ul>
+                <div class="header-info-left">
+                    <a href="" class="nav-item text-info" uk-icon="twitter"></a>
+                    <a href="" class="nav-item text-primary" uk-icon="facebook"></a>
+                    <a href="" class="nav-item text-danger" uk-icon="google-plus"></a>
                 </div>
                 <div class="header-info-right">
-                    <ul class="nav" style="margin-top: 5px;">
-                        <li class="nav-item" style="margin-right: 10px;"><a style="color: white;" href="#modal-signup" uk-toggle ><i style="color: white;"  uk-icon="lock"></i>Sign up</a></li>
-                        <li><a style="color: white;" ><i style="color: white;" uk-icon="user"></i>Sign in</a></li>
-                    </ul>
+                    <a href="#modal-signup" class="uk-button uk-button-primary text-white uk-border-rounded"
+                        uk-toggle>Sign up</a>
+                    <a class="uk-button uk-button-default text-white uk-border-rounded">Sign in</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<nav id="nav" uk-sticky="animation: uk-animation-slide-top" ng-controller="appCtrl" style="padding: 0;" class=" nav navbar navbar-expand-lg   " ng-init="selectedTab='home'">
-    <a style="color:black;"  ng-click="selectedTab='home'" style="font-weight: bold" class="navbar-brand" href="#"><img
-            src="img/logo.png" alt="logo"></a>
+<nav id="nav" uk-sticky="animation: uk-animation-slide-top" ng-controller="appCtrl" style="padding: 0 1rem;"
+    class="nav navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color: white;margin-right: 35px;">≡</span>
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" uk-icon="icon:menu;ratio:2"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="nav navbar-nav" >
-            <li class="padding nav-item {{selectedTab=='home'?'active':''}}">
-                <a ng-click="selectedTab='home'" class="nav-link" ui-sref="main.home" >Home <span class="sr-only">(current)</span></a>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a ui-sref-active="active" class="nav-link uk-border-rounded" ui-sref="main.home">Home</a>
             </li>
-            <li class="padding nav-item {{selectedTab=='courses'?'active':''}}">
-                <a ng-click="selectedTab='courses'" class="nav-link" ui-sref="main.courses">Courses</a>
+            <li class="nav-item">
+                <a ui-sref-active="active" class="nav-link uk-border-rounded" ui-sref="main.courses">Courses</a>
             </li>
-            <li class="padding nav-item {{selectedTab=='contact'?'active':''}}">
-                <a ng-click="selectedTab='contact'" class="nav-link" ui-sref="main.contact">Contact Us</a>
+            <li class="nav-item">
+                <a ui-sref-active="active" class="nav-link uk-border-rounded" ui-sref="main.contact">Contact Us</a>
             </li>
         </ul>
-<ul style="right:25px;bottom:-20px;position:absolute;color: black;font-size: medium;margin-top: 10px;">
-
-    <a class="uk-navbar-toggle " uk-search-icon href=""></a>
-    <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
-        <form class="uk-search uk-search-navbar uk-width-1-1">
-            <input class="uk-search-input search " type="search" placeholder="Search..." autofocus>
-        </form>
-    </div>
-</ul>
-
+        <div>
+            <a class="uk-navbar-toggle " uk-search-icon href=""></a>
+            <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                <form class="uk-search uk-search-navbar uk-width-1-1">
+                    <input class="uk-search-input search " type="search" placeholder="Search..." autofocus>
+                </form>
+            </div>
+        </div>
     </div>
 </nav>
 
-<div id="a" class="c" style="margin-top: 10px;width: 100%;margin-bottom: 60px;position: absolute" class="b container-fluid" ui-view="sub">
-    <a style="position:fixed;bottom: 2px;right: 2px;background-color: black;color: white" href="#nav" uk-totop></a>
-
+<div class="router-container container-fluid" ui-view="sub">
 </div>
-
-
