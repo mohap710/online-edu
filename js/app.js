@@ -18,7 +18,6 @@ app.config(function ($stateProvider,$urlRouterProvider) {
                 sub:{
                     templateUrl:"templates/home.html",
                     controller:"HomeCtrl"
-
                 }
 
             }

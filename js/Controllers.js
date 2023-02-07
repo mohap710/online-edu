@@ -1,39 +1,61 @@
 app.controller("appCtrl", function ($rootScope, $scope, $timeout, $interval) {
 
 })
-app.controller("HomeCtrl", function ($rootScope, $scope, $interval) {
-    $rootScope.count = 600
-    $interval(function () {
-        $rootScope.count++
-    }, 1, 450)
+app.controller("HomeCtrl", function ($scope) {
+    window.scrollTo(0, 0)
+    $scope.stats = {
+        courses: 19,
+        quizzes: 11,
+        instructors: 9,
+        learners: 250
+    }
+    $scope.getRepeater = function (rate) {
+        return new Array(rate);
+    };
+    $scope.reviews = [
+        { img: "img/team2.png", name: "Saunderson Grist", date: "02-April-2020", rate: 5, comment: "Very easy to use. I am so pleased with this product." },
+        { img: "img/team4.png", name: "Travis Tregale", date: "27-April-2020", rate: 2, comment: "I would also like to say thank you to all your staff. Online-edu impressed me on multiple levels. The service was excellent." },
+        { img: "img/team1.png", name: "Penelopa Pollitt", date: "02-May-2020", rate: 4, comment: "Without Online-edu, we would have gone bankrupt by now. I would also like to say thank you to all your staff. I made back the purchase price in just 48 hours!" },
+        { img: "img/team2.png", name: "Martina Dutnall", date: "02-march-2021", rate: 3, comment: "It's exactly what I've been looking for. Definitely worth the investment." },
+        { img: "img/team3.png", name: "Shanon Slevin", date: "02-April-2020", rate: 2, comment: "I have gotten at least 50 times the value from Online-edu. Thanks to Online-edu, we've just launched our 5th website!" },
+    ]
+
+    $scope.team = [{
+        "name": "Shawnee Lightbown",
+        "title": "Registered Nurse",
+        "img": "/img/team1.png"
+    }, {
+        "name": "Pavlov Casali",
+        "title": "Developer I",
+        "img": "/img/team2.png"
+    }, {
+        "name": "Pietra Gwinnell",
+        "title": "Nurse",
+        "img": "/img/team3.png"
+    }, {
+        "name": "Tynan Garrand",
+        "title": "Clinical Specialist",
+        "img": "/img/team4.png"
+    }]
     $scope.categories = [
         {
-            img: "img/svg/web design.svg", title: "Web Design", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "/img/svg/web design.svg", title: "Web Design", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         },
-        { img: "img/svg/multimedia.svg", title: "Video Editing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi." },
+        { img: "/img/svg/multimedia.svg", title: "Video Editing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi." },
         {
-            img: "img/svg/laptop.svg", title: "Digital Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
-        },
-        {
-            img: "img/svg/reading-book.svg", title: "App Development", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "/img/svg/laptop.svg", title: "Digital Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         },
         {
-            img: "img/svg/to-do-list.svg", title: "Seo Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "/img/svg/reading-book.svg", title: "App Development", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         },
         {
-            img: "img/svg/lamp.svg", title: "Content Writing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "/img/svg/to-do-list.svg", title: "Seo Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         },
+        {
+            img: "/img/svg/lamp.svg", title: "Content Writing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+        }
     ]
-    $scope.reviews = [
-        { name: "Ahmed", date: "02-April-2020", comment: "Outstanding" },
-        { name: "hassan", date: "27-April-2020", comment: "Not good" },
-        { name: "Esraa", date: "02-May-2020", comment: "Great courses" },
-        { name: "Ahmed", date: "02-march-2021", comment: "Outstanding" },
-        { name: "Jack", date: "02-April-2020", comment: "Outstanding" },
-        { name: "Mason", date: "02-April-2020", comment: "Brilliant!!" },
-        { name: "Ahmed", date: "02-April-2020", comment: "Outstanding" },
-
-    ]
+    
 })
 app.controller("coursesCtrl", function ($scope, $rootScope) {
     $(document).ready(function () {

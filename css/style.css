@@ -2,6 +2,20 @@
 * {
   font-family: "Quicksand", sans-serif !important;
 }
+.fa,
+.fas,
+.far {
+  font-family: "Font Awesome 5 Free" !important;
+}
+.min-h-50 {
+  min-height: 300px;
+}
+.uk-grid > * {
+  padding-inline: 10px;
+}
+.justify-content-evenly {
+  justify-content: space-evenly !important;
+}
 span.navbar-toggler {
   color: #030431;
   margin-right: 35px;
@@ -14,7 +28,7 @@ a.nav-link {
 }
 a.nav-link.active,
 a.nav-link:hover {
-  box-shadow: inset 100px 0 0 0 #2d3058;
+  box-shadow: inset 100vw 0 0 0 #2d3058;
   color: white;
 }
 .header-area .header-top {
@@ -74,10 +88,10 @@ a.navbar-toggle {
 section {
   padding: 4rem 2rem;
 }
-.hero__caption > *{
-    padding: 0;
-    font-weight: 800;
-    line-height: 1.5;
+.hero__caption > * {
+  padding: 0;
+  font-weight: 800;
+  line-height: 1.5;
 }
 .hero__caption > span {
   font-size: 1rem;
@@ -85,13 +99,13 @@ section {
   display: inline-block;
 }
 h1.intro {
-    padding-block: 2rem;
+  padding-block: 2rem;
   color: #030431;
   font-size: 3.5rem;
   animation-delay: 0.4s;
 }
 section.hero {
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   justify-content: space-between;
   background-color: #c0dfff;
@@ -137,12 +151,25 @@ section.hero {
 div.section-tittle {
   padding-block: 1rem;
 }
-div.section-tittle > span {
-  color: #2d3092;
-  font-weight: bold;
-}
 div.section-tittle > h2 {
+  position: relative;
   color: #030431;
+  font-weight: 800;
+}
+div.section-tittle > h2:after {
+  content: "";
+  position: absolute;
+  left: 44%;
+  bottom: -15px;
+  border-bottom: 5px solid #2d3092cc;
+  border-radius: 10px;
+  width: 10%;
+}
+
+div.section-tittle > p {
+  color: #2d3092;
+  padding: 1.5rem;
+  text-align: start;
   font-weight: 500;
 }
 h5 {
@@ -196,7 +223,21 @@ h5 > a {
 .bg-grey {
   background-color: #f6fbff;
 }
-.count-down-wrapper .single-counter p {
+.glass-bg {
+  overflow: hidden;
+  background-color: #c0dfff;
+  /* background-image: url(../img/blob-bg.svg); */
+  background-size: cover;
+}
+.glass-bg > img:nth-child(1) {
+  top: -45px;
+  left: -20px;
+}
+.glass-bg > img:nth-child(2) {
+  bottom: -45px;
+  right: -20px;
+}
+.single-counter p {
   font-size: 2rem;
   font-weight: 600;
   display: block;
