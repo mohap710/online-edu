@@ -1,5 +1,12 @@
 <div ng-controller="coursesCtrl">
-    <a ui-sref="main.courses" class="uk-icon-link" uk-icon="icon: arrow-left; ratio: 2"></a><a style="display: inline;font-weight: 700;color: #2d3092" ui-sref="main.courses">Back To Courses</a>
+    <!-- Header -->
+    <div class="page-header">
+        <ul class="uk-breadcrumb">
+            <li><a ui-sref="main.home" class="text-blue">Home</a></li>
+            <li><a ui-sref="main.courses">Courses</a></li>
+            <li><a href="javascript:void(0)" disabled>{{course.name}}</a></li>
+        </ul>
+    </div>
     <div class="jumbotron">
         <h1 class="uk-heading-bullet">{{course.name}}</h1>
         <h4>Duration:{{course.duration}}</h4>
@@ -24,7 +31,7 @@
         </dl></li>
         <li>
             <div style="width:100%" class="col-lg-push-1 container-fluid">
-            <ul uk-accordion ng-repeat="cours in web|filter:{name:course.name}">
+            <ul uk-accordion ng-repeat="cours in courses|filter:{name:course.name}">
                 <li  class="uk-accordion-content" ng-repeat="lecture in cours.lectures">
                     <a class="uk-accordion-title"  >{{lecture.name}}</a>
                             <div  class="uk-accordion-content">
@@ -44,9 +51,9 @@
         <li>
             <div class="uk-panel">
             <div class="uk-panel">
-            <h2 class="uk-align-left@m  uk-margin-remove-adjacent" >Ins.Mason Mount</h2>
+            <h2 class="uk-align-left@m  uk-margin-remove-adjacent" >Ins. {{ course.instructor.name }}</h2>
             </div>
-            <img class="uk-align-center uk-align-left@m uk-margin-remove-adjacent" style="border-radius: 50%"  src="img/team3.png" width="225" height="150" alt="Example image">
+            <img class="uk-align-center uk-align-left@m uk-margin-remove-adjacent" style="border-radius: 50%"  src="{{course.instructor.img}}" width="225" height="150" alt="Example image">
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

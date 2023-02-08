@@ -1,57 +1,190 @@
-<div class="container-fluid" >
+<!-- Header -->
+<div class="page-header">
+    <ul class="uk-breadcrumb">
+        <li><a ui-sref="main.home" class="text-blue">Home</a></li>
+        <li><a href="" disabled>Courses</a></li>
+    </ul>
+</div>
+<!-- Courses  -->
+<div class="p-2">
+    <div class="row">
+        <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar  mb-3">
+            <!-- Search Filter -->
 
-    <div class="uk-grid">
-<!--        accordion-->
-      <div class="uk-width-auto@m" >
-          <h3 class="item-divider">Courses</h3>
-          <hr uk-divider>
-          <ul uk-accordion   >
-              <li>
-                  <a  class="uk-accordion-title" href="">Web Development</a>
-                  <div class="uk-accordion-content">
-                      <div uk-grid>
-                          <div  class="uk-width-small@m">
-                              <ul  class="uk-nav uk-nav-default" uk-switcher="connect: #component-nav; animation: uk-animation-slide">
-                                  <li uk-filter-control ><a href="">All</a></li>
-                                  <li uk-filter-control="filter: .easy"><a href="">Beginners</a></li>
-                                  <li uk-filter-control="filter: .med"><a href="">Intermediate</a></li>
-                                  <li uk-filter-control="filter: .hard"><a href="">Advanced</a></li>
-                              </ul>
+            <!-- /Search Filter -->
 
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li >
-                  <a class="uk-accordion-title" href="">Software Engineering</a>
-                  <div class="uk-accordion-content">
-                      <div uk-grid>
-                          <div class="uk-width-small@m">
-                              <ul  class="uk-nav uk-nav-default" uk-switcher="connect: #component-nav1; animation: uk-animation-slide">
-                                  <li uk-filter-control ><a href="">All</a></li>
-                                  <li uk-filter-control="filter: .easy"><a href="">Beginners</a></li>
-                                  <li uk-filter-control="filter: .med"><a href="">Intermediate</a></li>
-                                  <li uk-filter-control="filter: .hard"><a href="">Advanced</a></li>
+            <div class="theiaStickySidebar">
+                <div class="card search-filter">
+                    <div class="card-header d-flex justify-content-between">
+                        <h4 class="card-title mb-0">FILTERS</h4>
+                        <a href="javascript:void(0);">Clear All</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="filter-widget">
+                            <h4>By Category</h4>
+                            <div class="form-group">
+                                <select class="form-control select select2-hidden-accessible" data-select2-id="1"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option data-select2-id="3">Select Category</option>
+                                    <option ng-repeat="category in categories">{{category.title}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-widget">
+                            <h4>By Level</h4>
+                            <div class="form-group">
+                                <select ng-model="level" class="form-control select select2-hidden-accessible" data-select2-id="7"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option data-select2-id="9">Select Your level</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-widget">
+                            <h4>Keywords</h4>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Enter Keywords">
+                            </div>
+                        </div>
+                        <div class="btn-search">
+                            <button type="button" class="btn btn-cart">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="resize-sensor"
+                    style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+                    <div class="resize-sensor-expand"
+                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                        <div
+                            style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 377px; height: 5146px;">
+                        </div>
+                    </div>
+                    <div class="resize-sensor-shrink"
+                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+                        <div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                              </ul>
+        <div class="col-md-12 col-lg-8 col-xl-9">
 
-                          </div>
-                      </div>
-                  </div>
-              </li>
-
-          </ul>
-      </div>
-
-        <div  style="display: inline" class=" uk-width-expand@m">
+            <div class="row">
+                <!-- Project Content -->
+                <div class="col-md-6 col-lg-12 col-xl-6" ng-repeat="course in courses track by $index">
+                    <div class="freelance-widget widget-author">
+                        <div class="freelance-content">
+                            <a data-bs-toggle="modal" href="#rating" class="favourite"><i
+                                    class="fas fa-star"></i></a>
+                            <div class="author-heading">
+                                <div class="profile-img">
+                                    <a href="#">
+                                        <img src="{{course.img}}" alt="author">
+                                    </a>
+                                </div>
+                                <div class="freelance-info">
+                                    <h3><a href="#">{{course.name}}</a></h3>
+                                    <div class="freelance-location mb-1"><i class="fas fa-clock"></i> {{ course.duration }}</div>
+                                    <div class="freelance-location"><i
+                                            class="fas fa-map-marker-alt me-1"></i>Georgia, USA</div>
+                                </div>
+                                <div class="freelancers-price">{{course.price | currency}}</div>
+                            </div>
+                            <div class="counter-stats">
+                                <ul>
+                                    <li>
+                                        <h3 class="counter-value">enroll before</h3>
+                                        <h5>2021-08-01</h5>
+                                    </li>
+                                    <li>
+                                        <h3 class="counter-value">15</h3>
+                                        <h5>enroller</h5>
+                                    </li>
+                                    <li>
+                                        <h3 class="counter-value"><span class="jobtype">Instructor</span></h3>
+                                        <h5>{{course.instructor.name}}</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cart-hover">
+                            <a href="javascript:void(0)" ng-click="viewCourse(course)" class="btn-cart" tabindex="-1">enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="uk-grid pt-2">
+    <!--        accordion-->
+        <div class="uk-width-1-4@m px-4" >
+            <h3 class="item-divider">Categories</h3>
+            <hr uk-divider>
+            <ul uk-accordion >
+                                <li ng-repeat="category in categories">
+                                    <a class="uk-accordion-title text-uppercase" href="">{{category.title}}</a>
+                                    <div class="uk-accordion-content">
+                                        <div uk-grid>
+                                            <div class="uk-width-small@m">
+                                                <ul class="uk-nav uk-nav-default" uk-switcher="connect: #component-nav; animation: uk-animation-slide">
+                                                    <li uk-filter-control><a href="">All</a></li>
+                                                    <li uk-filter-control="filter: .easy"><a href="">Beginners</a></li>
+                                                    <li uk-filter-control="filter: .med"><a href="">Intermediate</a></li>
+                                                    <li uk-filter-control="filter: .hard"><a href="">Advanced</a></li>
+                                                </ul>
+                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                <!-- <li>
+                    <a  class="uk-accordion-title text-uppercase" href="">Web Development</a>
+                    <div class="uk-accordion-content">
+                        <div uk-grid>
+                            <div  class="uk-width-small@m">
+                                <ul  class="uk-nav uk-nav-default" uk-switcher="connect: #component-nav; animation: uk-animation-slide">
+                                    <li uk-filter-control ><a href="">All</a></li>
+                                    <li uk-filter-control="filter: .easy"><a href="">Beginners</a></li>
+                                    <li uk-filter-control="filter: .med"><a href="">Intermediate</a></li>
+                                    <li uk-filter-control="filter: .hard"><a href="">Advanced</a></li>
+                                </ul>
+    
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li >
+                    <a class="uk-accordion-title" href="">Software Engineering</a>
+                    <div class="uk-accordion-content">
+                        <div uk-grid>
+                            <div class="uk-width-small@m">
+                                <ul  class="uk-nav uk-nav-default" uk-switcher="connect: #component-nav1; animation: uk-animation-slide">
+                                    <li uk-filter-control ><a href="">All</a></li>
+                                    <li uk-filter-control="filter: .easy"><a href="">Beginners</a></li>
+                                    <li uk-filter-control="filter: .med"><a href="">Intermediate</a></li>
+                                    <li uk-filter-control="filter: .hard"><a href="">Advanced</a></li>
+    
+                                </ul>
+    
+                            </div>
+                        </div>
+                    </div>
+                </li> -->
+    
+            </ul>
+        </div>
+    
+        <div class=" uk-width-3-4@m px-4">
             <div >
-
                 <ul id="component-nav" class="js-filter uk-switcher">
                     <li uk grid class="uk-grid-match ">
-                        <div class="  uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-
-                            <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid uk-grid-match">
-                                <li ng-repeat="x in web" class="uk-card uk-card-default uk-card-large ">
+                            <div class="uk-child-width-1-2 uk-child-width-1-3@m uk-grid uk-grid-match">
+                                <div ng-repeat="x in web" class="uk-card uk-card-default uk-card-large ">
                                     <div class="uk-card-header">
                                         <div class="uk-grid-small uk-flex-middle " uk-grid>
                                             <div class="uk-width-auto">
@@ -67,22 +200,17 @@
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                                     </div>
                                     <div class="uk-card-footer">
-
+    
                                         <a  class="custom-underline" ng-click="showCourse(x)">Read more</a>
-
+    
                                     </div>
-                                </li>
-
-                            </ul>
-
-                            <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-left uk-position-small " href="#" uk-slidenav-previous uk-slider-item="previous"><</a>
-                            <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slider-item="next">></a>
-
-                        </div>
+                                </div>
+    
+                            </div>
                     </li>
-                    <li uk grid class="uk-grid-match  ">
+                    <li uk grid class="uk-grid-match">
                         <div class="  uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-
+    
                             <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
                                 <li ng-repeat="x in web|filter:{diff:'easy'}" class="uk-card uk-card-default uk-card-large ">
                                     <div class="uk-card-header">
@@ -102,19 +230,20 @@
                                     <div class="uk-card-footer">
                                         <a  class="custom-underline" ng-click="showCourse(x)">Read more</a>                                    </div>
                                 </li>
-
-
+    
+    
                             </ul>
-
+    
                             <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-left uk-position-small " href=""  uk-slidenav-previous uk-slider-item="previous"><</a>
                             <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-right uk-position-small" href="" uk-slidenav-next uk-slider-item="next">></a>
-
-                        </div>                    </li>
+    
+                        </div>
+                    </li>
                     <li uk grid class="uk-grid-match">
                         <div class="  uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-
+    
                             <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
-
+    
                                 <li ng-repeat="x in web|filter:{diff:'med'}" class="uk-card uk-card-default ">
                                     <div class="uk-card-header">
                                         <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -133,20 +262,20 @@
                                     <div class="uk-card-footer">
                                         <a  class="custom-underline" ng-click="showCourse(x)">Read more</a>                                    </div>
                                 </li>
-
+    
                             </ul>
-
+    
                             <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-left uk-position-small " href="#" uk-slidenav-previous uk-slider-item="previous"><</a>
                             <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slider-item="next">></a>
-
-
+    
+    
                         </div>
                     </li>
                     <li uk grid class="uk-grid-match ">
                         <div class="  uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-
+    
                             <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
-
+    
                                 <li ng-repeat="x in web|filter:{diff:'hard'}" class="uk-card uk-card-default ">
                                     <div class="uk-card-header">
                                         <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -165,25 +294,25 @@
                                     <div class="uk-card-footer">
                                         <a  class="custom-underline" ng-click="showCourse(x)">Read more</a>                                    </div>
                                 </li>
-
-
+    
+    
                             </ul>
-
+    
                             <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-left uk-position-small " href="#" uk-slidenav-previous uk-slider-item="previous"><</a>
                             <a style="color: #2d3092;font-size: x-large;" class="text-center uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slider-item="next">></a>
-
-
+    
+    
                         </div>
                     </li>
-
-
+    
+    
                 </ul>
-
-
-
-
+    
+    
+    
+    
             </div>
         </div>
-
+    
     </div>
-</div>
+</section>
