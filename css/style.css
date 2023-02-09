@@ -8,7 +8,8 @@ html{
 }
 .fa,
 .fas,
-.far {
+.far,
+.fab {
   font-family: "Font Awesome 5 Free" !important;
 }
 .form-control:focus {
@@ -245,7 +246,8 @@ h5 > a {
 }
 .glass-bg {
   overflow: hidden;
-  background-color: #c0dfff;
+  padding-block: 5rem;
+  background-color: #deebf8;
   /* background-image: url(../img/blob-bg.svg); */
   background-size: cover;
 }
@@ -258,7 +260,8 @@ h5 > a {
   right: -20px;
 }
 .single-counter p {
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-top: 1rem;
   font-weight: 600;
   display: block;
 }
@@ -271,13 +274,12 @@ h5 > a {
 .color-red {
   font-size: 16px !important;
   font-weight: bold;
-  color: rgb(240, 85, 16);
+  color: #f05510;
 }
 .color-green {
   font-size: 16px !important;
   font-weight: bold;
-  color: rgb(30, 157, 120);
-  padding-top: 10px;
+  color: #1e9d78;
 }
 .color-green2 {
   font-size: 16px !important;
@@ -349,8 +351,8 @@ a.custom-underline:active {
 }
 /* animate/*/
 .router-container {
-  position: absolute;
-  width: 100%;
+  /* position: absolute;
+  width: 100%; */
 }
 .router-container.ng-enter {
   opacity: 0;
@@ -648,4 +650,169 @@ a.custom-underline:active {
     width: 1px;
     height: 18px;
     background-color: #ecf0f9;
+}
+
+.review:hover{
+  cursor: grab;
+}
+.review .uk-card-title{
+  font-size: .8rem;
+  font-weight: 900;
+}
+
+
+/* Footer  */
+
+.footer-section {
+  background: #191c3b;
+  position: relative;
+}
+.footer-cta {
+  border-bottom: 2px solid #fff;
+}
+.single-cta i {
+  color: #f4f4f4f4;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #f4f4f4;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #f4f4f4f4;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: #fff;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #f4f4f4f4;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #f4f4f4f4;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h3 {
+  color: #f4f4f4f4;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #f4f4f4f4;
+}
+.footer-widget ul li {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #fff;
+}
+.footer-widget ul li a {
+  color: #f4f4f4f4;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form input:focus-visible {
+  outline: transparent;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #2d3058;
+    padding: 13px 20px;
+    border: 1px solid #2d3058;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #f4f4f4f4;
+  font-size: 22px;
+  transform: rotate(-6deg);
+  transition: transform ease-in-out .1s;
+}
+.subscribe-form button i:hover {
+  transform: rotate(6deg);
+}
+.copyright-area{
+  background: #f4f4f4f4;
+  padding-block: 1rem;
+}
+.copyright-text p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #191c3b;
+}
+.copyright-text p a{
+  color: #191c3b;
 }
