@@ -17,6 +17,7 @@ app.controller("appCtrl", function ($rootScope, $scope, $timeout, $interval) {
             img: "/img/svg/lamp.svg", title: "Content Writing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         }
     ]
+    $scope.year = new Date().getFullYear()
 })
 app.controller("HomeCtrl", function ($scope) {
     window.scrollTo(0, 0)

@@ -6,7 +6,8 @@ app.config(function ($stateProvider,$urlRouterProvider) {
             url:"/main",
             views:{
                 main:{
-                    templateUrl:"templates/main.html"
+                    templateUrl:"templates/main.html",
+                    controller:"appCtrl"
                 }
             }
 
