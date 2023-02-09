@@ -1,20 +1,20 @@
 app.controller("appCtrl", function ($rootScope, $scope, $timeout, $interval) {
     $rootScope.categories = [
         {
-            img: "/img/svg/web design.svg", title: "Web Design", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "img/svg/web design.svg", title: "Web Design", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         },
-        { img: "/img/svg/multimedia.svg", title: "Video Editing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi." },
+        { img: "img/svg/multimedia.svg", title: "Video Editing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi." },
         {
-            img: "/img/svg/laptop.svg", title: "Digital Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
-        },
-        {
-            img: "/img/svg/reading-book.svg", title: "App Development", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "img/svg/laptop.svg", title: "Digital Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         },
         {
-            img: "/img/svg/to-do-list.svg", title: "Seo Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "img/svg/reading-book.svg", title: "App Development", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         },
         {
-            img: "/img/svg/lamp.svg", title: "Content Writing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+            img: "img/svg/to-do-list.svg", title: "Seo Marketing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
+        },
+        {
+            img: "img/svg/lamp.svg", title: "Content Writing", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
         }
     ]
     $scope.year = new Date().getFullYear()
@@ -41,26 +41,27 @@ app.controller("HomeCtrl", function ($scope) {
     $scope.team = [{
         name: "Shawnee Lightbown",
         title: "Registered Nurse",
-        img: "/img/team1.png"
+        img: "img/team1.png"
     }, {
         name: "Pavlov Casali",
         title: "Developer I",
-        img: "/img/team2.png"
+        img: "img/team2.png"
     }, {
         name: "Pietra Gwinnell",
         title: "Nurse",
-        img: "/img/team3.png"
+        img: "img/team3.png"
     }, {
         name: "Tynan Garrand",
         title: "Clinical Specialist",
-        img: "/img/team4.png"
+        img: "img/team4.png"
     }]
 
     
 })
 
 
-app.controller("coursesCtrl", function ($scope, $rootScope) {
+app.controller("coursesCtrl", function ($scope, $rootScope,$location) {
+    window.scrollTo(0, 0)
     $(document).ready(function () {
         $("#form").hide(1)
         $("#reply").click(function (e) {
@@ -75,28 +76,28 @@ app.controller("coursesCtrl", function ($scope, $rootScope) {
     })
     $scope.courses = [
         {
-            instructor:{name:"Doti Haig",img:"/img/team1.png"},price:500,category:"web",name: "HTML", img: "img/courses/html.png", duration: "7 Hours", level: "easy", lectures: [
+            instructor:{name:"Doti Haig",img:"img/team1.png"},price:500,category:"web",name: "HTML", img: "img/courses/html.png", duration: "7 Hours", level: "easy", lectures: [
                 { name: "lecture1", lessons: [{ name: "Html Basics Tags" }] },
                 { name: "lecture2", lessons: [{ name: "Attribute" }, { name: "Table" }, { name: "Table Attribute(colspan,rowspan)" }] }
             ]
         },
         {
-            instructor:{name:"Mae Desseine",img:"/img/team1.png"},price:500,category:"web",name: "CSS", img: "img/courses/css-3.png", duration: "7 Hours", level: "easy", lectures: [
+            instructor:{name:"Mae Desseine",img:"img/team1.png"},price:500,category:"web",name: "CSS", img: "img/courses/css-3.png", duration: "7 Hours", level: "easy", lectures: [
                 { name: "lecture1", lessons: [{ name: "Style Attribute" }] },
                 { name: "lecture2", lessons: [{ name: "colors" }, { name: "Fonts" }, { name: "Margin" }] }
             ]
         },
         {
-            instructor:{name:"Hartwell Mungan",img:"/img/team4.png"},price:500,category:"web",name: "JavaScript Basics", img: "img/courses/javascript.png", duration: "7 Hours", level: "easy", lectures: [
+            instructor:{name:"Hartwell Mungan",img:"img/team4.png"},price:500,category:"web",name: "JavaScript Basics", img: "img/courses/javascript.png", duration: "7 Hours", level: "easy", lectures: [
                 { name: "lecture1", lessons: [{ name: "Variables" }, { name: "Functions" }] },
                 { name: "lecture2", lessons: [{ name: "Conditions(IF,While)" }, { name: "For Loops" }, { name: "Arrays" }] }
             ]
         },
-        { instructor:{name:"Frasco Tour",img:"/img/team2.png"},price:500,category:"web",name: "Jquery", img: "img/courses/jquery.png", duration: "10 Hours", level: "med" },
-        { instructor:{name:"Heida Blaik",img:"/img/team3.png"},price:500,category:"web",name: "Bootstrap", img: "img/courses/bootstrap.jpg", duration: "10 Hours", level: "med" },
-        { instructor:{name:"Damara Rapinett",img:"/img/team4.png"},price:500,category:"web",name: "AngularJS", img: "img/courses/angularjs.png", duration: "12 Hours", level: "hard" },
-        { instructor:{name:"Melisandra Yerson",img:"/img/team2.png"},price:500,category:"web",name: "UI-Kit", img: "img/courses/uikit.png", duration: "11 Hours", level: "hard" },
-        { instructor:{name:"Trula Haliburton",img:"/img/team1.png"},price:500,category:"web",name: "Advanced JavaScript", img: "img/courses/advance.jpg", duration: "7 Hours", level: "hard" }
+        { instructor:{name:"Frasco Tour",img:"img/team2.png"},price:500,category:"web",name: "Jquery", img: "img/courses/jquery.png", duration: "10 Hours", level: "med" },
+        { instructor:{name:"Heida Blaik",img:"img/team3.png"},price:500,category:"web",name: "Bootstrap", img: "img/courses/bootstrap.jpg", duration: "10 Hours", level: "med" },
+        { instructor:{name:"Damara Rapinett",img:"img/team4.png"},price:500,category:"web",name: "AngularJS", img: "img/courses/angularjs.png", duration: "12 Hours", level: "hard" },
+        { instructor:{name:"Melisandra Yerson",img:"img/team2.png"},price:500,category:"web",name: "UI-Kit", img: "img/courses/uikit.png", duration: "11 Hours", level: "hard" },
+        { instructor:{name:"Trula Haliburton",img:"img/team1.png"},price:500,category:"web",name: "Advanced JavaScript", img: "img/courses/advance.jpg", duration: "7 Hours", level: "hard" }
     ]
 
     $scope.faqs = [
@@ -109,7 +110,7 @@ app.controller("coursesCtrl", function ($scope, $rootScope) {
 
         $rootScope.course = course
 
-        window.location.replace("http://127.0.0.1:8080/#!/main/course");
+        $location.path("/main/course");
         console.log($rootScope.course)
     }
 })
