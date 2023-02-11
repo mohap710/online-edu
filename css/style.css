@@ -169,6 +169,9 @@ section.hero {
   .hero-bg {
     display: none;
   }
+  .uk-slider-items{
+  transform: unset!important;
+}
   h1.intro {
     font-size: 2rem;
   }
@@ -295,6 +298,7 @@ h5 > a {
   color: gold;
 }
 /* UI kit classes modifications */
+
 .uk-navbar-toggle {
   justify-content: start;
 }
