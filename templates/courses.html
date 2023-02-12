@@ -17,35 +17,33 @@
                 <div class="card search-filter">
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="card-title mb-0">FILTERS</h4>
-                        <a href="javascript:void(0);">Clear All</a>
+                        <a href="javascript:void(0);" ng-click="resetFilters()">Clear All</a>
                     </div>
                     <div class="card-body">
                         <div class="filter-widget">
-                            <h4>By Category</h4>
+                            <h6>By Category</h6>
                             <div class="form-group">
-                                <select class="form-control select select2-hidden-accessible" data-select2-id="1"
+                                <select ng-model="categoryFilter" class="form-control select select2-hidden-accessible"
                                     tabindex="-1" aria-hidden="true">
-                                    <option data-select2-id="3">Select Category</option>
-                                    <option ng-repeat="category in categories">{{category.title}}</option>
+                                    <option value="{{ category.id }}" ng-repeat="category in categories">{{category.title}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="filter-widget">
-                            <h4>By Level</h4>
+                            <h6>By Level</h6>
                             <div class="form-group">
-                                <select ng-model="level" class="form-control select select2-hidden-accessible" data-select2-id="7"
+                                <select ng-model="levelFilter" class="form-control select select2-hidden-accessible" data-select2-id="1"
                                     tabindex="-1" aria-hidden="true">
-                                    <option data-select2-id="9">Select Your level</option>
-                                    <option value="beginner">Beginner</option>
-                                    <option value="intermediate">Intermediate</option>
-                                    <option value="advanced">Advanced</option>
+                                    <option value="easy">Beginner</option>
+                                    <option value="med">Intermediate</option>
+                                    <option value="hard">Advanced</option>
                                 </select>
                             </div>
                         </div>
                         <div class="filter-widget">
-                            <h4>Keywords</h4>
+                            <h6>Keywords</h6>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter Keywords">
+                                <input type="text" ng-model="keyword" class="form-control" placeholder="Enter Keywords">
                             </div>
                         </div>
                         <div class="btn-search">
@@ -53,43 +51,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="resize-sensor"
-                    style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
-                    <div class="resize-sensor-expand"
-                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
-                        <div
-                            style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 377px; height: 5146px;">
-                        </div>
-                    </div>
-                    <div class="resize-sensor-shrink"
-                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
-                        <div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
         <div class="col-md-12 col-lg-8 col-xl-9">
-
+            <div class="sort-tab">
+                <div class="row align-items-center">
+                    <div class="col-xl-12">
+                        <div class="d-flex align-items-center">
+                            <div class="freelance-view">
+                                <h4>Showing 1 - {{ limit >= filtered.length  }} of {{ filtered.length }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <!-- Project Content -->
-                <div class="col-md-6 col-lg-12 col-xl-6" ng-repeat="course in courses track by $index">
+                <div ng-click="viewCourse(course)" class="col-md-6 col-lg-12 col-xl-6" ng-repeat="course in courses | limitTo:limit | filter :{name:keyword,category_id : categoryFilter,level:levelFilter} as filtered track by $index">
                     <div class="freelance-widget widget-author">
                         <div class="freelance-content">
-                            <a data-bs-toggle="modal" href="#rating" class="favourite"><i
+                            <a data-bs-toggle="modal" href="javascript:void(0)" class="favourite"><i
                                     class="fas fa-star"></i></a>
                             <div class="author-heading">
                                 <div class="profile-img">
-                                    <a href="#">
+                                    <a>
                                         <img src="{{course.img}}" alt="author">
                                     </a>
                                 </div>
                                 <div class="freelance-info">
-                                    <h3><a href="#">{{course.name}}</a></h3>
+                                    <h3><a>{{course.name}}</a></h3>
+                                    <h4 class="freelance-location">{{getCategoryName(course.category_id)}}</h4>
                                     <div class="freelance-location mb-1"><i class="fas fa-clock"></i> {{ course.duration }}</div>
-                                    <div class="freelance-location"><i
-                                            class="fas fa-map-marker-alt me-1"></i>Georgia, USA</div>
                                 </div>
                                 <div class="freelancers-price">{{course.price | currency}}</div>
                             </div>
@@ -111,9 +104,18 @@
                             </div>
                         </div>
                         <div class="cart-hover">
-                            <a href="javascript:void(0)" ng-click="viewCourse(course)" class="btn-cart" tabindex="-1">enroll Now</a>
+                            <a href="javascript:void(0)" class="btn-cart" tabindex="-1">enroll Now</a>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="paginations list-pagination">
+                        <li><a href="javascript:void(0)"><i class="fas fa-angle-left"></i> Previous</a></li>
+                        <li><a href="javascript:void(0)">1</a></li>
+                        <li><a href="javascript:void(0)">Next <i class="fas fa-angle-right"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
