@@ -92,7 +92,6 @@ a.navbar-toggle {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
-  background-color: #f4f4f4f4;
 }
 /*  */
 .page-header {
@@ -298,7 +297,16 @@ h5 > a {
   color: gold;
 }
 /* UI kit classes modifications */
-
+.uk-heading-bullet::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: calc(-.1 * 1em);
+    vertical-align: middle;
+    height: calc(4px + .7em);
+    margin-right: calc(5px + .2em);
+    border-left: calc(5px + .1em) solid #4b4da1;
+}
 .uk-navbar-toggle {
   justify-content: start;
 }
@@ -676,6 +684,36 @@ a.custom-underline:active {
 .review .uk-card-title {
   font-size: 0.8rem;
   font-weight: 900;
+}
+
+/* Pagination */
+
+.paginations {
+	padding-block: 1rem;
+	margin-bottom: 0;
+}
+.paginations li {
+	list-style: none;
+	display: inline-block;
+	padding-right: 20px;
+}
+.paginations li a {
+	font-weight: 600;
+	font-size: 14px;
+	color: #161c2d;
+}
+.paginations li a.active {
+    background: #282d6e;
+    color: #fff;
+    padding: 5px 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.paginations li:hover a.active {
+    color: #fff;
+}
+.paginations li:hover a {
+    color: #282d6e;
 }
 
 /* Footer  */
