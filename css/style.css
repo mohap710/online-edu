@@ -5,6 +5,8 @@
 }
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: unset;
 }
 .fa,
 .fas,
@@ -296,7 +298,17 @@ h5 > a {
 .checked {
   color: gold;
 }
-/* UI kit classes modifications */
+/* UI kit and angular-md classes modifications */
+md-content{
+  background-color: rgb(250, 250, 250);
+}
+md-tabs md-ink-bar {
+    color: #363996;
+    background: #363996;
+}
+md-tabs .md-tab.md-active{
+    color: #2d3092;
+}
 .uk-heading-bullet::before {
     content: "";
     display: inline-block;
@@ -517,17 +529,31 @@ a.custom-underline:active {
 }
 .sort-tab {
   background-color: #edeef3;
-  padding: 15px 20px;
+  padding: 10px 10px;
   border-radius: 6px;
   margin-bottom: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.freelance-view h4 {
+.sort-tab h4 {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 800;
   color: #53545b;
   display: inline-block;
   margin-bottom: 0;
 }
+.sort-tab i {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+.sort-tab i.active {
+  color: white;
+  background-color: #282d6e;
+  padding: 5px;
+}
+
 .sort-by select {
   border: none;
   outline: none;
@@ -586,12 +612,14 @@ a.custom-underline:active {
   margin: 0 auto 15px;
 }
 .widget-author .profile-img a {
+  height: 100%;
   border-radius: 50%;
   position: relative;
   display: inline-block;
 }
 .widget-author .profile-img a img {
   width: 100%;
+  height: 100%;
   border-radius: 50%;
 }
 .widget-author .author-name {
@@ -678,12 +706,28 @@ a.custom-underline:active {
   background-color: #ecf0f9;
 }
 
+.review {
+  user-select: none;
+}
 .review:hover {
   cursor: grab;
 }
 .review .uk-card-title {
   font-size: 0.8rem;
   font-weight: 900;
+}
+
+.no-courses{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no-courses h4{
+  color: #1f205a;
+  font-weight: 700;
+}
+.no-courses>img{
+  width: 65%;
 }
 
 /* Pagination */
@@ -700,20 +744,22 @@ a.custom-underline:active {
 .paginations li a {
 	font-weight: 600;
 	font-size: 14px;
+  padding: 5px 10px;
+    border-radius: 50%;
+    display: inline-block;
 	color: #161c2d;
 }
 .paginations li a.active {
     background: #282d6e;
     color: #fff;
-    padding: 5px 11px;
-    border-radius: 50%;
-    display: inline-block;
+    
 }
 .paginations li:hover a.active {
     color: #fff;
 }
-.paginations li:hover a {
-    color: #282d6e;
+.paginations a:hover {
+    background: #282d6e;
+    color: #fff;
 }
 
 /* Footer  */
