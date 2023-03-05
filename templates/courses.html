@@ -8,7 +8,7 @@
 <!-- Courses  -->
 <div class="p-2">
     <div class="row">
-        <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar  mb-3">
+        <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar mb-3">
             <!-- Search Filter -->
 
             <!-- /Search Filter -->
@@ -17,7 +17,7 @@
                 <div class="card search-filter">
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="card-title mb-0">FILTERS</h4>
-                        <a href="javascript:void(0);" ng-click="resetFilters()">Clear All</a>
+                        <a href="javascript:void(0);" ng-if="filter" ng-click="resetFilters()">Clear All</a>
                     </div>
                     <div class="card-body">
                         <div class="filter-widget">
@@ -25,15 +25,19 @@
                             <div class="form-group">
                                 <select ng-model="categoryFilter" class="form-control select select2-hidden-accessible"
                                     tabindex="-1" aria-hidden="true">
-                                    <option value="{{ category.id }}" ng-repeat="category in categories">{{category.title}}</option>
+                                    <option value="">All</option>
+                                    <option value="{{ category.id }}" ng-repeat="category in categories">
+                                        {{category.title}}
+                                    </option>
                                 </select>
                             </div>
                         </div>
                         <div class="filter-widget">
                             <h6>By Level</h6>
                             <div class="form-group">
-                                <select ng-model="levelFilter" class="form-control select select2-hidden-accessible" data-select2-id="1"
-                                    tabindex="-1" aria-hidden="true">
+                                <select ng-model="levelFilter" class="form-control select select2-hidden-accessible"
+                                    data-select2-id="1" tabindex="-1">
+                                    <option value="">All</option>
                                     <option value="easy">Beginner</option>
                                     <option value="med">Intermediate</option>
                                     <option value="hard">Advanced</option>
@@ -47,28 +51,41 @@
                             </div>
                         </div>
                         <div class="btn-search">
-                            <button type="button" class="btn btn-cart">Search</button>
+                            <button type="button" class="btn btn-cart" ng-click="search()">Search</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-12 col-lg-8 col-xl-9">
+        <div class="col-md-12 col-lg-8 col-xl-9 min-h-50">
             <div class="sort-tab">
-                <div class="row align-items-center">
-                    <div class="col-xl-12">
-                        <div class="d-flex align-items-center">
-                            <div class="freelance-view">
-                                <h4>Showing 1 - {{ limit >= filtered.length  }} of {{ filtered.length }}</h4>
-                            </div>
-                        </div>
-                    </div>
+                <div class="ml-2">
+                    <h4>Showing {{ pagination().firstItem }} - {{ pagination().lastItem  }} of
+                        {{ pagination().allItems }}
+                    </h4>
+                </div>
+                <div class="mr-2">
+                    <i 
+                        class="fas fa-list-ul px-1" 
+                        ng-class="view == 'list' ? 'active' : ''" 
+                        uk-tooltip="List View"></i>
+                    
+                    <i 
+                        class="fas fa-th-large px-1" 
+                        ng-class="view == 'grid' ? 'active' : ''" 
+                        uk-tooltip="Grid View"></i>
                 </div>
             </div>
-            <div class="row">
+            <!-- No Courses -->
+            <div class="no-courses" ng-if="courses.length == 0">
+                <h4 class="p-4">No courses Matching Your Search</h4>
+                <img src="../img/404.svg" alt="no-data">
+            </div>
+            <div class="row" ng-if="courses.length != 0">
                 <!-- Project Content -->
-                <div ng-click="viewCourse(course)" class="col-md-6 col-lg-12 col-xl-6" ng-repeat="course in courses | limitTo:limit | filter :{name:keyword,category_id : categoryFilter,level:levelFilter} as filtered track by $index">
+                <div ng-click="viewCourse(course)" class="col-md-6 col-lg-12 col-xl-6"
+                    ng-repeat="course in courses track by $index">
                     <div class="freelance-widget widget-author">
                         <div class="freelance-content">
                             <a data-bs-toggle="modal" href="javascript:void(0)" class="favourite"><i
@@ -82,7 +99,9 @@
                                 <div class="freelance-info">
                                     <h3><a>{{course.name}}</a></h3>
                                     <h4 class="freelance-location">{{getCategoryName(course.category_id)}}</h4>
-                                    <div class="freelance-location mb-1"><i class="fas fa-clock"></i> {{ course.duration }}</div>
+                                    <div class="freelance-location mb-1"><i class="fas fa-clock"></i>
+                                        {{ course.duration }}
+                                    </div>
                                 </div>
                                 <div class="freelancers-price">{{course.price | currency}}</div>
                             </div>
@@ -93,7 +112,7 @@
                                         <h5>2021-08-01</h5>
                                     </li>
                                     <li>
-                                        <h3 class="counter-value">15</h3>
+                                        <h3 class="counter-value">{{ course.enrollers }}</h3>
                                         <h5>enroller</h5>
                                     </li>
                                     <li>
@@ -109,15 +128,19 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="paginations list-pagination">
-                        <li><a href="javascript:void(0)"><i class="fas fa-angle-left"></i> Previous</a></li>
-                        <li><a href="javascript:void(0)">1</a></li>
-                        <li><a href="javascript:void(0)">Next <i class="fas fa-angle-right"></i></a></li>
-                    </ul>
-                </div>
+            <div class="row justify-content-center" ng-if="pages > 1">
+                <ul class="paginations list-pagination">
+                    <li ng-if="currentPage > 1"><a href="javascript:void(0)" ng-click="changePage(currentPage - 1)"><i
+                                class="fas fa-angle-left"></i> Previous</a></li>
+                    <li ng-repeat="page in getRepeater(pages) track by $index">
+                        <a ng-click="changePage($index + 1)" href="javascript:void(0)"
+                            ng-class="currentPage == $index + 1 ? 'active':''">{{$index + 1}}</a>
+                    </li>
+                    <li ng-if="pages > currentPage"><a href="javascript:void(0)"
+                            ng-click="changePage(currentPage + 1)">Next <i class="fas fa-angle-right"></i></a></li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 </div>
