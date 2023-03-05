@@ -1,7 +1,7 @@
 if(!navigator.onLine){
     console.log("Offline");
 }
-var app=angular.module("myApp",["ui.router","ngAnimate"])
+var app = angular.module("myApp", ["ui.router", "ngAnimate", 'ngMaterial'])
 app.config(function ($stateProvider,$urlRouterProvider) {
     $stateProvider
 
