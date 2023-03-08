@@ -1,4 +1,7 @@
 app.controller("appCtrl", function ($rootScope, $scope) {
+    $('.navbar-collapse a').click(function () {
+        $(".navbar-collapse").collapse('hide');
+    });
     $rootScope.categories = [
         {
             id: 1, img: "img/svg/web design.svg", title: "Web Design", caption: "Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do eiusmod temporincidi."
